@@ -15,19 +15,19 @@
             </div>
         
         <form id="login" class="input-group">
-            <input type="text" class="input-field" placeholder="User Id" required>
+            <input type="email" class="input-field" placeholder="User Id" required id="myMail">
             <input type="password" class="input-field" placeholder="Enter Password" required id="myInput">
             <input type="checkbox" onclick="myFunction()"><span class="sp">Show Password</span>
             <div></div>
             <input type="checkbox" class="chek-box"><span>Remember Password</span>
-            <button type="submit" class="submit-btn" onclick="validatePassword()">Log in</button>
+            <button type="submit" class="submit-btn" onclick="validatePassword(), ValidateEmail()" >Log in</button>
         </form>
         <form id="register" class="input-group">
             <input type="text" class="input-field" placeholder="User Id" required>
-            <input type="email" class="input-field" placeholder="Email Id" required>
-            <input type="text" class="input-field" placeholder="Enter Password" required>
+            <input type="email" class="input-field" placeholder="Email Id" id="myMail" required>
+            <input type="password" class="input-field" placeholder="Enter Password" id="myInput" required>
             <input type="checkbox" class="chech-box"><span>I agree to the terms & conditions</span>
-            <button type="submit" class="submit-btn">Register</button>
+            <button type="submit" class="submit-btn" onclick="validatePassword(), ValidateEmail()">Register</button>
             
         </form>
     </div>
@@ -59,7 +59,7 @@ function myFunction() {
   }
 }
 
-
+//Check the password validation
 function validatePassword() {
     var p = document.getElementById('myInput').value,
         errors = [];
@@ -78,6 +78,22 @@ function validatePassword() {
     }
     return true;
 }
+
+function ValidateEmail(myMail)   
+{
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email.value))  
+    {
+        return (true);
+    }
+    alert("Invalid Email");  
+    return (false);
+}
+</script>
+    <form name=myForm action='demo_form.asp' onsubmit='return ValidateEmail();'>
+    <input type='text' name='email'>
+    <input type='submit'>
+</form>
+
 
 </script>
 </script>
