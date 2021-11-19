@@ -16,9 +16,11 @@
         
         <form id="login" class="input-group">
             <input type="text" class="input-field" placeholder="User Id" required>
-            <input type="text" class="input-field" placeholder="Enter Password" required>
-            <input type="checkbox" class="chech-box"><span>Remember Password</span>
-            <button type="submit" class="submit-btn">Log in</button>
+            <input type="password" class="input-field" placeholder="Enter Password" required id="myInput">
+            <input type="checkbox" onclick="myFunction()"><span class="sp">Show Password</span>
+            <div></div>
+            <input type="checkbox" class="chek-box"><span>Remember Password</span>
+            <button type="submit" class="submit-btn" onclick="validatePassword()">Log in</button>
         </form>
         <form id="register" class="input-group">
             <input type="text" class="input-field" placeholder="User Id" required>
@@ -26,6 +28,7 @@
             <input type="text" class="input-field" placeholder="Enter Password" required>
             <input type="checkbox" class="chech-box"><span>I agree to the terms & conditions</span>
             <button type="submit" class="submit-btn">Register</button>
+            
         </form>
     </div>
 </div>
@@ -47,6 +50,36 @@ function login(){
     z.style.left="0";
 }
 
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+
+function validatePassword() {
+    var p = document.getElementById('myInput').value,
+        errors = [];
+    if (p.length < 6) {
+        errors.push("Your password must be at least 6 characters"); 
+    }
+    if (p.search(/[a-z]/i) < 0) {
+        errors.push("Your password must contain at least one letter.");
+    }
+    if (p.search(/[0-9]/) < 0) {
+        errors.push("Your password must contain at least one digit."); 
+    }
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }
+    return true;
+}
+
+</script>
 </script>
 </body>
 </html>

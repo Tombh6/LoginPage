@@ -94,7 +94,13 @@ span{
 #register{
     left:450px;
 }
+.chek-box{
+    margin:34px 7px 34px 0;
 
-
-
-
+}
+.sp{
+    color:#777;
+    font-size:12px;
+    bottom: 115px;
+    position:absolute;
+}
